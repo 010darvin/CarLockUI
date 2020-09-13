@@ -4,11 +4,12 @@ using Oxide.Core.Libraries.Covalence;
 using Oxide.Core.Plugins;
 using Oxide.Game.Rust.Cui;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Car Lock UI", "WhiteThunder", "1.0.0")]
+    [Info("Car Lock UI", "WhiteThunder", "1.0.1")]
     [Description("Adds a UI to add code locks to modular cars.")]
     internal class CarLockUI : CovalencePlugin
     {
@@ -19,7 +20,7 @@ namespace Oxide.Plugins
 
         private static CarLockUI PluginInstance;
 
-        private CarLockUIConfig PluginConfig;
+        private Configuration PluginConfig;
 
         private const string PermissionUseCodeLock = "carlockui.use.codelock";
 
@@ -35,7 +36,6 @@ namespace Oxide.Plugins
         private void Init()
         {
             PluginInstance = this;
-            PluginConfig = Config.ReadObject<CarLockUIConfig>();
             UIManager = new CodeLockUIManager(PluginConfig.UISettings);
 
             permission.RegisterPermission(PermissionUseCodeLock, this);
@@ -340,10 +340,14 @@ namespace Oxide.Plugins
 
         #region Configuration
 
-        internal class CarLockUIConfig
+        internal class Configuration
         {
             [JsonProperty("UISettings")]
             public UISettings UISettings = new UISettings();
+
+            public string ToJson() => JsonConvert.SerializeObject(this);
+
+            public Dictionary<string, object> ToDictionary() => JsonConvert.DeserializeObject<Dictionary<string, object>>(ToJson());
         }
 
         internal class UISettings
@@ -370,11 +374,37 @@ namespace Oxide.Plugins
             public string ButtonTextColor = "0.97 0.92 0.88 1";
         }
 
-        private CarLockUIConfig GetDefaultConfig() =>
-            new CarLockUIConfig();
+        protected override void LoadDefaultConfig() => PluginConfig = new Configuration();
 
-        protected override void LoadDefaultConfig() =>
-            Config.WriteObject(GetDefaultConfig(), true);
+        protected override void LoadConfig()
+        {
+            base.LoadConfig();
+            try
+            {
+                PluginConfig = Config.ReadObject<Configuration>();
+                if (PluginConfig == null)
+                {
+                    throw new JsonException();
+                }
+
+                if (!PluginConfig.ToDictionary().Keys.SequenceEqual(Config.ToDictionary(x => x.Key, x => x.Value).Keys))
+                {
+                    LogWarning("Configuration appears to be outdated; updating and saving");
+                    SaveConfig();
+                }
+            }
+            catch
+            {
+                LogWarning($"Configuration file {Name}.json is invalid; using defaults");
+                LoadDefaultConfig();
+            }
+        }
+
+        protected override void SaveConfig()
+        {
+            Log($"Configuration changes saved to {Name}.json");
+            Config.WriteObject(PluginConfig, true);
+        }
 
         #endregion
 
