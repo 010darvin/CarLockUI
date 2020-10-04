@@ -9,7 +9,7 @@ Players will see the UI while "looting" a car at a lift if the following conditi
 - The car has a cockpit module (i.e., driver seat).
 - The car does not already have a key lock or code lock deployed to it (though it may have a built-in car lock).
 
-Note: While this plugin requires the [Vehicle Deployed Locks](https://umod.org/plugins/vehicle-deployed-locks) plugin to be installed, no configuration or permission setup of that plugin is required, but you can optionally configure that plugin to alter some aspects of how code locks work on cars and other vehicles.
+Note: This plugin requires the [Vehicle Deployed Locks](https://umod.org/plugins/vehicle-deployed-locks) plugin to be installed, but you can safely install that plugin without any setup because its default mode is passive, meaning it will just support other plugins like this one. If you want, you can optionally configure that plugin to alter some aspects of how code locks work on cars and other vehicles.
 
 ## UI Screenshots
 
