@@ -1,15 +1,20 @@
-**Car Lock UI** allows players to deploy code locks to modular cars at a car lift using a UI.
+## Features
 
-*Note: This plugin plus [Vehicle Deployed Locks](https://umod.org/plugins/vehicle-deployed-locks) replace [Modular Car Code Locks](https://umod.org/plugins/modular-car-code-locks).*
+- Allows players to deploy code locks to modular cars at a car lift using a UI
 
-Players will see the UI while "looting" a car at a lift if the following conditions are met.
+## Required plugins
+
+- [Vehicle Deployed Locks](https://umod.org/plugins/vehicle-deployed-locks) -- No configuration of permissions necessary. If you want, you can optionally configure that plugin to alter some aspects of how code locks work on cars and other vehicles.
+
+## How it works
+
+Players will see the UI while editing a car at a lift if the following conditions are met.
+
 - The player has permission.
 - The player is not building blocked.
 - The player has a code lock, sufficient resources to craft one, or permission for free locks in the Vehicle Deployed Locks plugin.
 - The car has a cockpit module (i.e., driver seat).
 - The car does not already have a key lock or code lock deployed to it (though it may have a built-in car lock).
-
-Note: This plugin requires the [Vehicle Deployed Locks](https://umod.org/plugins/vehicle-deployed-locks) plugin to be installed, but you can safely install that plugin without any setup because its default mode is passive, meaning it will just support other plugins like this one. If you want, you can optionally configure that plugin to alter some aspects of how code locks work on cars and other vehicles.
 
 ## UI Screenshots
 
