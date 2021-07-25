@@ -31,13 +31,13 @@ Players will see the UI while editing a car at a lift if the following condition
 ```json
 {
   "UISettings": {
+    "AnchorMin": "0.5 0",
+    "AnchorMax": "0.5 0",
+    "OffsetMin": "385.5 349",
+    "OffsetMax": "572.5 377",
     "AddButtonColor": "0.44 0.54 0.26 1",
-    "AnchorMax": "1 0",
-    "AnchorMin": "1 0",
-    "ButtonTextColor": "0.97 0.92 0.88 1",
-    "OffsetMax": "-68 377",
-    "OffsetMin": "-255 349",
-    "RemoveButtonColor": "0.7 0.3 0 1"
+    "RemoveButtonColor": "0.7 0.3 0 1",
+    "ButtonTextColor": "0.97 0.92 0.88 1"
   }
 }
 ```

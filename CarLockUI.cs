@@ -11,7 +11,7 @@ using UnityEngine;
 
 namespace Oxide.Plugins
 {
-    [Info("Car Lock UI", "WhiteThunder", "1.0.1")]
+    [Info("Car Lock UI", "WhiteThunder", "1.0.2")]
     [Description("Adds a UI to add code locks to modular cars.")]
     internal class CarLockUI : CovalencePlugin
     {
@@ -376,16 +376,16 @@ namespace Oxide.Plugins
         private class UISettings
         {
             [JsonProperty("AnchorMin")]
-            public string AnchorMin = "1 0";
+            public string AnchorMin = "0.5 0";
 
             [JsonProperty("AnchorMax")]
-            public string AnchorMax = "1 0";
+            public string AnchorMax = "0.5 0";
 
             [JsonProperty("OffsetMin")]
-            public string OffsetMin = "-255 349";
+            public string OffsetMin = "385.5 349";
 
             [JsonProperty("OffsetMax")]
-            public string OffsetMax = "-68 377";
+            public string OffsetMax = "572.5 377";
 
             [JsonProperty("AddButtonColor")]
             public string AddButtonColor = "0.44 0.54 0.26 1";
