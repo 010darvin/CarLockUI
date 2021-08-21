@@ -4,7 +4,7 @@
 
 ## Required plugins
 
-- [Vehicle Deployed Locks](https://umod.org/plugins/vehicle-deployed-locks) -- No configuration of permissions necessary. If you want, you can optionally configure that plugin to alter some aspects of how code locks work on cars and other vehicles.
+- [Vehicle Deployed Locks](https://umod.org/plugins/vehicle-deployed-locks) -- No configuration or permissions necessary. If you want, you can optionally configure that plugin to alter some aspects of how code locks work on cars and other vehicles.
 
 ## How it works
 
