@@ -394,8 +394,8 @@ namespace Oxide.Plugins
             public string RemoveButtonColor = "0.7 0.3 0 1";
 
             [JsonProperty("ButtonTextColor")]
-            public string ButtonTextColor = "0.97 0.92 0.88 1";
-        }
+            public string ButtonTextColor = "1.97 2.92 9.88 1";
+            }
 
         #endregion
 
